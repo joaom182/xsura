@@ -22,7 +22,7 @@ yarn global add xsura
 
 # Commands
 
-## Copy
+## copy
 Copy the data from an instance of Hasura to another instance of Hasura
 
 ```bash
