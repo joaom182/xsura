@@ -3,6 +3,7 @@ import { parseStringToKeyValueObject } from '~helpers/parse-string-to-key-value-
 import { getFieldData } from '~services/get-field-data';
 import { insertFieldData } from '~services/insert-field-data';
 import { getIntrospection } from '~services/get-introspection';
+import ora from 'ora';
 
 export async function copy(
   fields: string[],
@@ -12,18 +13,32 @@ export async function copy(
   targetHeaders: { [key: string]: string }
 ) {
   const introspection = await getIntrospection(source, sourceHeaders);
-
   for (let field of fields) {
-    let data = await getFieldData(source, sourceHeaders, field, introspection);
-    let response = await insertFieldData(
-      target,
-      targetHeaders,
-      field,
-      introspection,
-      data
-    );
-    console.log(`${response.affected_rows || 0} rows inserted on ${field}`);
+    let pos = fields.indexOf(field) + 1;
+    let total = fields.length;
+    let prefix = `${pos}/${total} [${field}]`;
+    let spinner = ora(`${prefix} Fetching data`).start();
+    try {
+      let data = await getFieldData(
+        source,
+        sourceHeaders,
+        field,
+        introspection
+      );
+      spinner.text = `${prefix} Inserting ${data.length} records`;
+      let response = await insertFieldData(
+        target,
+        targetHeaders,
+        field,
+        introspection,
+        data
+      );
+      spinner.succeed(`${prefix} ${response.affected_rows || 0} rows inserted`);
+    } catch (err: any) {
+      spinner.fail(`${prefix} Failed: ${err?.message}`);
+    }
   }
+  ora().succeed(`Done!`);
 }
 
 export const COPY_COMMAND = (yargs: Argv<{}>) =>

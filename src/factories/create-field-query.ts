@@ -9,6 +9,11 @@ export function createFieldQuery(
 ) {
   const properties = getFieldProperties(field, introspection);
 
+  if (!properties.length)
+    throw new Error(
+      `${field} field does not exist or dont contain a primary key`
+    );
+
   return print(gql`
     {
         ${field} {

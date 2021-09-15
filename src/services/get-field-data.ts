@@ -9,6 +9,12 @@ export async function getFieldData(
   introspection: InstrospectionSchema
 ): Promise<[]> {
   const query = createFieldQuery(field, introspection);
+
+  if (!query)
+    throw new Error(
+      `${field} field does not exist or dont contain a primary key`
+    );
+
   const { data } = await axios.post(
     graphQlUrl,
     {
