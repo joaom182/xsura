@@ -5578,6 +5578,17 @@ xmlchars@^2.2.0:
   resolved "https://registry.yarnpkg.com/xmlchars/-/xmlchars-2.2.0.tgz#060fe1bcb7f9c76fe2a17db86a9bc3ab894210cb"
   integrity sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==
 
+xsura@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/xsura/-/xsura-0.0.1.tgz#07ec841866062d211fd4f5be079286cd1018f772"
+  integrity sha512-xNxawfNIq9xRdujgmDEWPEqH8BiZKzJbvIkjQXA8WUE6iYG+rBjbc5QQ2+oCu+SApUdnmjVbIAAst01FIqx8cg==
+  dependencies:
+    axios "^0.21.4"
+    graphql "^15.5.3"
+    graphql-tag "^2.12.5"
+    lodash "^4.17.21"
+    yargs "^17.1.1"
+
 xtend@^4.0.0:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.2.tgz#bb72779f5fa465186b1f438f674fa347fdb5db54"

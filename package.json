@@ -1,6 +1,6 @@
 {
   "name": "xsura",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "main": "./dist/index.js",
   "scripts": {
@@ -39,7 +39,8 @@
     "ts-node-dev": "^1.1.8",
     "tsconfig-paths": "^3.11.0",
     "tscpaths": "^0.0.9",
-    "typescript": "^4.4.2"
+    "typescript": "^4.4.2",
+    "xsura": "^0.0.1"
   },
   "bin": {
     "xsura": "./dist/index.js"
