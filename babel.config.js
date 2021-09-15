@@ -15,7 +15,10 @@ module.exports = {
       'module-resolver',
       {
         alias: {
-          '~src': './src',
+          '~/': './src/',
+          '~services': './src/services',
+          '~helpers': './src/helpers',
+          '~factories': './src/factories',
         },
       },
     ],

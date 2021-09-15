@@ -1,11 +1,21 @@
 # About
-This is a Node repo with a base configuration for TypeScript, Jest, Babel, Prettier and Eslint
+This is a tool to migrate data between two Hasura instances through the GraphQL endpoints
 
-# Installing and configuring
-- [TypeScript](./docs/1.%20typescript.md)
-- [Prettier](./docs/2.%20prettier.md)
-- [ESLint](./docs/3.%20eslint.md)
-- [Jest](./docs/4.%20jest.md)
-- [Babel](./docs/5.%20babel.md)
-- [Docker](./docs/6.%20docker.md)
-  
+# Installing
+```
+yarn global add xsura
+```
+
+# Commands
+
+## Copy
+Copy the data from an instance of Hasura to another instance of Hasura
+
+```bash
+xsura copy \
+--fields="table_a,table_b" \
+--source="https://source.hasura.app/v1/graphql" \
+--source-headers="x-hasura-admin-secret|ADMIN_SECRET_KEY" \
+--target="https://target.hasura.app/v1/graphql" \
+--target-headers="x-hasura-admin-secret|ADMIN_SECRET_KEY"
+```

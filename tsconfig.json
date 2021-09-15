@@ -20,7 +20,10 @@
     "strict": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "~src/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "~services/*": ["./src/services/*"],
+      "~helpers/*": ["./src/helpers/*"],
+      "~factories/*": ["./src/factories/*"]
     }
   },
   "include": ["src/**/*"]
